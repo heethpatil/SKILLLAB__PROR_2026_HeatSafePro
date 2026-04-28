@@ -57,26 +57,26 @@ By the final review, this README should clearly show:
 
 ## 1.1 Studio / Group Name
 
-`Project^2`
+`HeatGuard`
 
 ## 1.2 Team Members
 
 | Name           | Primary Role                    | Secondary Role | Strengths Brought to the Project |
 | -------------- | ------------------------------- | -------------- | -------------------------------- |
-| `Gopalakrishnan` | `[Electronics / Coding / App ]` | `Documentation`  | `Documentation, Gift of Gab `|
-| `KAder Shaikh`  | `[Electronics / Fabrication]`   | `[Coding]`     | `Material Handling, Hardware`    |
+| `Arsalan` | `[Electronics]`                      | `Coding`  
+| `Ashish`  | `[Coding]`                           | `Material Handling` |
+| `Heeth` | `[Ideation]`                           | `Documentation`  
+| `Tanaaz`  | `[Hardware]`                         | `Documentation` |
 
 ## 1.3 Project Title
 
-`"Project Project"`
+`"HeatSafePro"`
 
 `(because Project-or)`
 
-<img width="1600" height="1131" alt="image" src="https://github.com/user-attachments/assets/c64bfbd4-b3b7-43d9-83ad-c203a5aa11bc" />
-
 ## 1.4 One-Line Pitch
 
-`A projected, fully customizable time portal where engineering education is done through PUBG battlefield in the comfort of our home`
+`A wearable system that detects dangerous heat stress in outdoor workers and alerts supervisors before it becomes fatal.`
 
 ## 1.5 Expanded Project Idea
 
@@ -87,7 +87,7 @@ In 1–2 paragraphs, explain:
 - what technologies are involved.
 
 **Response:**  
-`A projected and fully customizable time portal can transform engineering education into an immersive PUBG-style battlefield experience from the comfort of home. In this environment, students can learn engineering concepts by entering a virtual battlefield where challenges, obstacles, and missions are designed around real technical problems. Instead of passively studying theory, learners actively apply concepts such as electronics, coding, sensors, robotics, mechanics, and system design to complete missions, solve problems, and progress through different levels. This approach makes engineering education more interactive, engaging, and practical by combining gaming, simulation, and hands-on problem-solving in a familiar and exciting format.`
+`Every summer in India, thousands of outdoor workers — construction labourers, road workers, and daily wage earners — collapse and die from heat stroke because nobody is monitoring them. Our solution, Heat Stress Guardian, is a two part wearable safety system designed to fix this. A DHT11 sensor embedded in a cardboard wristband continuously reads temperature and humidity, sending both values to the RP2040 Shrike Lite which calculates the Heat Index — the same formula doctors and meteorologists use to assess real danger to the human body. This matters because 38°C at 90% humidity feels like 51°C and is fatal, while 38°C at 30% humidity is manageable — a basic thermometer cannot tell the difference but our device can. When the heat index crosses a critical threshold, a buzzer alerts the worker to stop, while simultaneously a red LED and serial monitor at the supervisor station display live readings and a DANGER status so the supervisor can immediately intervene.`
 
 ---
 
