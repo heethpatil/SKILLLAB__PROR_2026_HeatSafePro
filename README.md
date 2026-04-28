@@ -403,10 +403,10 @@ Include:
 - how documentation will be maintained.
 
 **Response:**  `Task Division:
-Person 1 — Hardware lead. Responsible for all physical wiring on breadboard, component connections, and circuit testing. Ensures DHT11, LDR, and RFID are correctly connected and reading data.
-Person 2 — Code lead. Responsible for writing and uploading Arduino C++ code to RP2040, debugging sensor readings, and implementing heat index calculation and alert logic.
-Person 3 — Documentation lead. Responsible for continuously updating GitHub README throughout the build, uploading progress photos, and maintaining the hourly log.
-Person 4 — Testing and presentation lead. Responsible for testing each feature as it is built, preparing the 8-slide presentation, scripting the 60-second video, and coordinating the final demo.`
+Tanaaz — Hardware lead. Responsible for all physical wiring on breadboard, component connections, and circuit testing. Ensures DHT11, LDR, and RFID are correctly connected and reading data.
+Arsalan — Code lead. Responsible for writing and uploading Arduino C++ code to RP2040, debugging sensor readings, and implementing heat index calculation and alert logic.
+Heeth — Documentation lead. Responsible for continuously updating GitHub README throughout the build, uploading progress photos, and maintaining the hourly log.
+Ashish — Testing and presentation lead. Responsible for testing each feature as it is built, preparing the 8-slide presentation, scripting the 60-second video, and coordinating the final demo.`
 
 
 ## 12.2 Task Breakdown
