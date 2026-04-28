@@ -61,12 +61,12 @@ By the final review, this README should clearly show:
 
 ## 1.2 Team Members
 
-| Name           | Primary Role                    | Secondary Role | Strengths Brought to the Project |
-| -------------- | ------------------------------- | -------------- | -------------------------------- |
-| `Arsalan` | `[Electronics]`                      | `Coding`  
-| `Ashish`  | `[Coding]`                           | `Material Handling` |
-| `Heeth` | `[Ideation]`                           | `Documentation`  
-| `Tanaaz`  | `[Hardware]`                         | `Documentation` |
+| Name           | Primary Role                    | Secondary Role |  Strengths Brought to the Project |
+| -------------- | ------------------------------- | -------------- |  -------------------------------- |
+| `Arsalan` | `[Electronics]`                      | `Coding`|  
+| `Ashish`  | `[Coding]`                           | `Material Handling`|
+| `Heeth` | `[Ideation]`                           | `Documentation`| 
+| `Tanaaz`  | `[Hardware]`                         | `Documentation`|
 
 ## 1.3 Project Title
 
@@ -244,7 +244,7 @@ Add a sketch with labels showing:
 | ------------------------- | --------: | ------------------------------------- |
 | `RP2040 Shrike Lite` | `1` | Main microcontroller |
 | `DHT11` | `1` | Reads temperature and humidity |
-| `Vibration Motor` | `1` | Alerts worker on wristband |
+| `RFID` | `1` | Monitoring person |
 | `Buzzer` | `1` | Alerts supervisor at station |
 | `Red LED` | `1` | Danger indicator at station |
 | `Green LED` | `1` | Safe indicator at station |
@@ -258,11 +258,8 @@ Add a sketch with labels showing:
 Describe the main electrical connections.
 
 **Response:**  
-`The ESP32 is connected to the motor driver (L298N) using four GPIO pins (18,19; 22,23) to control motor direction (IN1, IN2, IN3, IN4). Two PWM-capable pins (ENA and ENB; 25 and 26) are connected to control the speed of each motor.
-
-The motors are connected to the output terminals of the motor driver. The motor driver is powered directly by the battery pack (higher voltage), while the ESP32 receives regulated 5V from the buck converter.
-
-All components share a common ground to ensure stable operation. The projector and camera are connected to the laptop, which handles tracking and game logic separately.`
+`The RP2040 Shrike Lite acts as the central controller. The DHT11 temperature and humidity sensor is connected to GP0 for digital data reading. The LDR is connected to GP26 via a voltage divider with a 10k resistor to read analog light levels. The pulse sensor signal pin connects to GP27, another ADC-capable pin, for analog heart rate reading. The PIR sensor output connects to GP1 for digital presence detection.
+The RFID RC522 communicates over SPI — SCK to GP18, MOSI to GP19, MISO to GP16, CS to GP17, and RST to GP20. The buzzer positive connects to GP2. Red LED connects to GP3 and green LED to GP4, each with a 220 ohm resistor in series to limit current. All component grounds connect to a common GND rail on the breadboard. The 9V battery positive connects to the VSYS pin of the RP2040 which has onboard voltage regulation.`
 
 ## 8.3 Circuit Diagram
 
@@ -277,10 +274,10 @@ Insert a hand-drawn or software-made circuit diagram.
 
 | Question         | Response                                                                                                                                          |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Power source     | `Battery (Li-ion pack)`                                                                                                                           |
-| Voltage required | `~6–8.4V for motors (via driver), stepped down to 5V for ESP32 (buck converter)`                                                                  |
-| Current concerns | `Motors can draw high current under load, which may cause voltage drops affecting ESP32 and WiFi stability`                                       |
-| Safety concerns  | `Avoid over-discharging Li-ion batteries, ensure proper voltage regulation, prevent short circuits, and secure wiring to avoid loose connections` |
+| Power source     | `9V Battery(not currently mounted here)`                                                                                                                           |
+| Voltage required | `3.3V for RP2040 and all sensors and 5V for LCD`                                                                  
+| Current concerns | `Major concern is that Pulse sensor and RFID RC522 running simultaneously may cause minor current spikes `                                     
+| Safety concerns  | `Avoid short circuits on breadboard, ensure all GND rails are connected to common ground, do not exceed 3.3V on any GPIO pin as RP2040 is not 5V tolerant, secure all jumper wire connections to prevent loose contact during demo` |
 
 ---
 
@@ -290,9 +287,9 @@ Insert a hand-drawn or software-made circuit diagram.
 
 | Tool / Platform                | Purpose                                        |
 | ------------------------------ | ---------------------------------------------- |
-| `[MicroPython]`                | `Control ESP32`                                |
-| `[Python/PyGame/OpenCV]`       | `Track markers, game logic, create projection` |
-| `[Fusion/Blender/Illustrator]` | `[Prototyping structure]`                      |
+| `[Arduino IDE]`                | `Writing and uploading C++ code to RP2040 Shrike Lite`                                |
+| `[MFRC522 Library]`            | `Reading RFID card UID via RC522 module` |
+| `[DHT Library]`                | `[Reading temperature and humidity from DHT11]`                      |
 |                                |                                                |
 
 ## 10.2 Software Logic
