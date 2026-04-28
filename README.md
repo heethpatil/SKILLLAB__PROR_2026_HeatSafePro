@@ -588,6 +588,10 @@ Suggested images:
 - mechanism test,
 - app screenshot,
 - final build.
+<img width="1280" height="720" alt="WhatsApp Image 2026-04-28 at 12 00 52 PM (1)" src="https://github.com/user-attachments/assets/319f3637-d1c0-43c7-a5ba-7cb3c1bfe435" />
+<img width="1280" height="721" alt="WhatsApp Image 2026-04-28 at 3 36 47 PM (1)" src="https://github.com/user-attachments/assets/b318e06a-fc33-4e09-b618-dc7f6266f0e9" />
+
+
 <img width="1280" height="721" alt="WhatsApp Image 2026-04-28 at 3 36 46 PM" src="https://github.com/user-attachments/assets/9880e678-757e-4797-84c3-fcd30935c2f3" />
 
 
