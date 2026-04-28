@@ -71,6 +71,8 @@ By the final review, this README should clearly show:
 ## 1.3 Project Title
 
 `"HeatSafePro"`
+<img width="1920" height="1080" alt="heat safe pro jpg" src="https://github.com/user-attachments/assets/94b26a22-23ae-4e03-a1fb-707ec51db019" />
+
 
 ## 1.4 One-Line Pitch
 
@@ -93,20 +95,7 @@ In 1–2 paragraphs, explain:
 
 ## 2.1 Experience, Not Social Problem
 
-This module does **not** require your project to solve a large social problem.
-
-You are allowed to build:
-
-- toys,
-- games,
-- interactive objects,
-- playful machines,
-- kinetic artifacts,
-- humorous devices,
-- strange but delightful experiences,
-- things that are entertaining to use or watch.
-
-
+`Not Applicable`
 
 # 3. Inspiration
 
@@ -114,17 +103,12 @@ You are allowed to build:
 
 List what inspired the project.
 
-| Source Type | Title / Link                                                        | What Inspired You                                                                         |
-| ----------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `[Video]`   | `https://www.instagram.com/reel/DW4CT7WCDry/?igsh=cXg3dzAxYmdncDBo` | `How projection mapping can be used to create interactive digital + physical experiences` |
-|             |                                                                     |                                                                                           |
-|             |                                                                     |                                                                                           |
-
-## 3.2 Original Twist
+Source: https://indiaobservers.com/india-heatwave-2026-early-onset-record-heat-impact/
+        https://www.downtoearth.org.in/climate-change/warm-nights-above-normal-heat-waves-across-india-in-april-june-2026-imd
 
 What makes your project original?
 
-**Response:**  
+**Response:**  `Most heat alert systems only measure temperature. We measure heat index — temperature combined with humidity — which is the actual medical standard for heat stroke risk. We also add RFID worker registration so the system knows who is being monitored, and PIR presence detection so alerts only trigger when a worker is actually in the danger zone. No existing low-cost solution combines all three of these for daily wage outdoor workers.`
 
 
 ---
@@ -134,11 +118,11 @@ What makes your project original?
 ## 4.1 User Journey 
 
 Describe exactly how a user will use the project.Make it a story
-**Response:**  
 
-                                                  |
-
-
+**Response:** `We can think its 8am on a construction site in Mumbai. Chirag, a daily wage labourer, arrives for his shift. Before picking up his tools he walks to the supervisor station and taps his RFID card to check in. The serial monitor will print his name , and start monitoring him. 
+By 1pm the temperature has climbed to 38°C and humidity is at 85%. The heat index calculated by the RP2040 crosses 42°C — the danger threshold. The buzzer at the supervisor station fires hence the red LED lights up. The serial monitor flashes DANGER — HEAT INDEX 42°C — WORKER RAJAN — FORCE REST NOW.
+The supervisor looks up immediately and radios Rajan to stop work and move to shade. Rajan rests for 20 minutes.The environment cools and the system resets to green. Now He can safely go back to work.`
+                                                  
 
 ---
 
@@ -159,7 +143,7 @@ What is the smallest version of this project that still delivers the core experi
 
 What features are nice to have but not essential?
 
-
+`RFID is good to have for monitoring but our main system is for alerting supervisors for safety of daily wage workers and others.`
 ---
 
 # 6. System Overview
@@ -174,21 +158,21 @@ Check all that apply.
 
 - [x] Sensor-based
 
-- [x] App-connected
+- [ ] App-connected
 
-- [x] Motorized
+- [ ] Motorized
 
 - [ ] Sound-based
 
-- [x] Light-based
+- [ ] Light-based
 
 - [x] Screen/UI-based
 
 - [x] Fabricated structure
 
-- [x] Game logic based
+- [ ] Game logic based
 
-- [x] Installation
+- [ ] Installation
 
 - [ ] Other:
 
@@ -204,12 +188,10 @@ Include:
 - physical structure,
 - app interaction if any.
 
-**Response:**  
+**Response:**  `The Heat Stress Guardian is a two-part worker safety system. A worker taps their RFID card to register at the start of shift — this activates monitoring. The wristband unit continuously reads temperature and humidity via DHT11, ambient light via LDR, and heart rate via pulse sensor clipped to the finger. All readings are sent to the RP2040 Shrike Lite which calculates the heat index every few seconds. If the heat index crosses 39°C AND the pulse sensor confirms elevated heart rate above 100 BPM, the system triggers a two-stage alert — buzzer fires, red LED lights up, and the serial monitor on the supervisor's laptop displays live readings with a DANGER status showing exactly which worker is at risk. PIR sensor confirms the worker is still present in the danger zone before alerting. When conditions return to safe levels the green LED lights up and the system resets automatically.`
 
 ## 6.3 Input / Output Map
-
-| System Part                              | Type            | What It Does                                                               |
-
+<img width="884" height="475" alt="Screenshot 2026-04-28 130442" src="https://github.com/user-attachments/assets/4ecce1a6-1141-48bc-bad3-bfea4fef9319" />
 
 ---
 
