@@ -71,7 +71,8 @@ By the final review, this README should clearly show:
 ## 1.3 Project Title
 
 `"HeatSafePro"`
-<img width="1920" height="1080" alt="heat safe pro jpg" src="https://github.com/user-attachments/assets/94b26a22-23ae-4e03-a1fb-707ec51db019" />
+<img width="1280" height="960" alt="WhatsApp Image 2026-04-28 at 11 16 16 AM (1)" src="https://github.com/user-attachments/assets/dd9ac695-8d6a-4ea2-bb3c-0e53954c4ba6" />
+
 
 
 ## 1.4 One-Line Pitch
