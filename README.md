@@ -415,7 +415,7 @@ Ashish — Testing and presentation lead. Responsible for testing each feature a
 |---------|------|-------|-----------------|----------|------------|--------|
 | T1 | Brainstorm ideas and mutually decide final concept | All 4 | 1 | End of Hour 1 | None | Done |
 | T2 | Finalize component list and collect from lab | All 4 | 1 | End of Hour 1 | T1 | Done |
-| T3 | Set up Arduino IDE, install libraries, write base code | Arsalan | 1 | End of Hour 3 | T1 | Done |
+| T3 | Set up Arduino IDE, install libraries, write base code | Tanaaz | 1 | End of Hour 3 | T1 | Done |
 | T4 | Code heat index calculation, RFID, LED and buzzer logic | Arsalan| 1 | End of Hour 3 | T3 | Done |
 | T5 | Wire all components on breadboard | Tanaaz | 1 | End of Hour 5 | T2 | Done |
 | T6 | Upload code to RP2040 and test each sensor individually | Tanaaz + Arsalan | 1 | End of Hour 5 | T4 T5 | Done |
@@ -430,7 +430,7 @@ Ashish — Testing and presentation lead. Responsible for testing each feature a
 |------|------------|---------------|
 | Concept | Heeth | Ashish |
 | Electronics | Arsalan | Tanaaz |
-| Coding |Arsalan| Tanaaz |
+| Coding |Tanaaz| Arsalan |
 | Mechanical build | Tanaaz | Ashish |
 | Testing | Ashish | Arsalan |
 | Documentation |Heeth | Ashish |
