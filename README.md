@@ -310,11 +310,17 @@ Include:
 
 **Response:**  
 `Startup behavior: The RP2040 initializes all GPIO pins for buzzer, red LED, and green LED. DHT11 and LDR begin continuous reading. RFID RC522 initializes over SPI and waits for a card tap. Serial monitor prints "Heat Stress Guardian — Ready. Waiting for worker registration."
+
 Input handling: System waits for RFID card tap first. Once worker card is detected and ID is registered, DHT11 and LDR activate monitoring. No monitoring happens before RFID registration.
+
 Sensor reading: DHT11 reads temperature and humidity every 2 seconds. LDR reads analog light value continuously — high value means direct sunlight, low value means shade.
+
 Decision logic: RP2040 calculates heat index from temperature and humidity. If LDR detects direct sunlight, danger threshold is lowered by 3°C. Three states — SAFE below 27°C, WARNING between 27°C and 30°C, DANGER above 30°C.
+
 Output behavior: SAFE → green LED on, buzzer off, serial monitor prints live readings. WARNING → red LED on as visual silent alert, buzzer off, serial monitor prints "WARNING — heat index rising." DANGER → red LED on, buzzer triggers, serial monitor prints "DANGER — WORKER [ID] — HEAT INDEX [value]°C — FORCE REST NOW."
+
 Communication logic: All output through serial monitor at 9600 baud. Supervisor laptop displays live readings in real time. No wireless communication in current version.
+
 Reset behavior: When heat index drops below 27°C, system resets to SAFE automatically. Green LED on, buzzer off, red LED off, serial monitor prints "SAFE — conditions normal." RFID registration persists until device is powered off.`
 
 
@@ -559,10 +565,15 @@ Include:
 
 **Response:**  
 `The fabrication process for Heat Stress Guardian was kept simple and practical given the 8-hour time constraint of the build session.
+
 Design: No CAD software was used. The system was planned on paper with a rough sketch showing component placement on the breadboard and connection layout before wiring began.
+
 Assembly: All components were assembled directly on a full-size breadboard. The RP2040 Shrike Lite was seated centrally, with DHT11, LDR, and RFID RC522 placed around it with jumper wires routed cleanly to avoid cross-connections. Buzzer and LEDs were placed on the outer edge for easy visibility during demo.
+
 Wiring: Male to male and male to female jumper wires were used throughout. All ground connections were routed to a common GND rail on the breadboard. Power was supplied via 9V battery connected to the VSYS pin.
+
 Finishing: No physical enclosure was completed within the build time. The breadboard assembly was left open as a working prototype. Components were labelled with small paper tags for clarity during demo and presentation.
+
 Revisions: Three major revisions were made during the build — LCD was removed after failing to initialize and replaced with serial monitor output, buzzer polarity was corrected after it failed to sound, and red LED was reversed after initial incorrect orientation prevented it from glowing. All three issues were identified and resolved during the testing phase.`
 
 ## 16.2 Build Photos
