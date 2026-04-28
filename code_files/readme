@@ -1,1 +1,122 @@
-Insert your documented code here
+#include <SPI.h>
+#include <MFRC522.h>
+#include <DHT.h>
+
+// ----------- DHT SETUP -----------
+#define DHTPIN 5
+#define DHTTYPE DHT11
+DHT dht(DHTPIN, DHTTYPE);
+
+// ----------- RFID SETUP -----------
+#define SS_PIN 24
+#define RST_PIN 29
+MFRC522 mfrc522(SS_PIN, RST_PIN);
+
+// ----------- OUTPUTS -----------
+#define BUZZER 6
+#define LED 7
+
+String workerID = "Unknown";
+
+void setup() {
+  Serial.begin(9600);
+
+  SPI.begin();             
+  mfrc522.PCD_Init();      
+
+  dht.begin();
+
+  pinMode(BUZZER, OUTPUT);
+  pinMode(LED, OUTPUT);
+
+  digitalWrite(BUZZER, LOW);
+  digitalWrite(LED, LOW);
+
+  Serial.println("=== Heat Stress Guardian Started ===");
+}
+
+// ----------- HEAT INDEX -----------
+float calculateHeatIndex(float T, float H) {
+  H = H / 100.0;
+  return T - 0.55 * (1 - H) * (T - 14.5);
+}
+
+void loop() {
+
+  // -------- RFID SCAN --------
+  if (mfrc522.PICC_IsNewCardPresent() && mfrc522.PICC_ReadCardSerial()) {
+
+    String uid = "";
+
+    for (byte i = 0; i < mfrc522.uid.size; i++) {
+      uid += String(mfrc522.uid.uidByte[i], HEX);
+    }
+
+    Serial.print("Card UID: ");
+    Serial.println(uid);
+
+    if (uid == "a1b2c3d4") {
+      workerID = "Worker 101";
+    } else if (uid == "f9e8d7c6") {
+      workerID = "Worker 102";
+    } else {
+      workerID = "Unknown Worker";
+    }
+
+    mfrc522.PICC_HaltA();
+  }
+
+  // -------- DHT11 READ --------
+  float temp = dht.readTemperature();
+  float hum = dht.readHumidity();
+
+  if (isnan(temp) || isnan(hum)) {
+    Serial.println("DHT11 Read Error!");
+    delay(2000);
+    return;
+  }
+
+  // -------- HEAT INDEX --------
+  float HI = calculateHeatIndex(temp, hum);
+
+  // -------- STATUS LOGIC --------
+  String status;
+
+  if (HI > 26) {
+    status = "CRITICAL";
+    digitalWrite(BUZZER, HIGH);
+    digitalWrite(LED, HIGH);
+  } 
+  else if (HI > 25) {
+    status = "WARNING";
+    digitalWrite(BUZZER, LOW);
+    digitalWrite(LED, HIGH);
+  } 
+  else {
+    status = "SAFE";
+    digitalWrite(BUZZER, LOW);
+    digitalWrite(LED, LOW);
+  } 
+
+  // -------- SERIAL OUTPUT --------
+  Serial.println("---------------");
+  Serial.print("Worker: ");
+  Serial.println(workerID);
+
+  Serial.print("Temp: ");
+  Serial.print(temp);
+  Serial.println(" C");
+
+  Serial.print("Humidity: ");
+  Serial.print(hum);
+  Serial.println(" %");
+
+  Serial.print("Heat Index: ");
+  Serial.println(HI);
+
+  Serial.print("Status: ");
+  Serial.println(status);
+  Serial.println("---------------");
+
+  delay(2000);
+}
