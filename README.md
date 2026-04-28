@@ -72,8 +72,6 @@ By the final review, this README should clearly show:
 
 `"HeatSafePro"`
 
-`(because Project-or)`
-
 ## 1.4 One-Line Pitch
 
 `A wearable system that detects dangerous heat stress in outdoor workers and alerts supervisors before it becomes fatal.`
@@ -260,16 +258,18 @@ Add a sketch with labels showing:
 # 8. Electronics Planning
 
 ## 8.1 Electronics Used
+| Component | Quantity | Purpose |
+| ------------------------- | --------: | ------------------------------------- |
+| `RP2040 Shrike Lite` | `1` | Main microcontroller |
+| `DHT11` | `1` | Reads temperature and humidity |
+| `Vibration Motor` | `1` | Alerts worker on wristband |
+| `Buzzer` | `1` | Alerts supervisor at station |
+| `Red LED` | `1` | Danger indicator at station |
+| `Green LED` | `1` | Safe indicator at station |
+| `Breadboard` | `1` | Circuit connections |
+| `Wires` | `-` | Connecting components |
+| `9V Battery` | `1` | Power supply |
 
-| Component                 | Quantity | Purpose                               |
-| ------------------------- | --------:| ------------------------------------- |
-| `[ESP32]`                 | `1`      | `[Main controller]`                   |
-| `[L298N Motor Driver]`    | `1`      | `[Control Motors]`                    |
-| `[BO Motors]`             | `2`      | `[Rotate wheels]`                     |
-| `[Buck Converter]`        | `1`      | `[Power ESP32]`                       |
-| `[Li Ion Battery Pack]`   | `2`      | `[Power]`                             |
-| `[Projector]`             | `1`      | `[Display obstacles]`                 |
-| `Camera (Webcam / Phone)` | `1`      | `[Tracks car position using markers]` |
 
 ## 8.2 Wiring Plan
 
